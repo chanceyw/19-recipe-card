@@ -22,4 +22,18 @@ test('User can see makes input box servings', function(assert) {
   });
 });
 
-test('User can see a list with 6 items on it')
+test('User can visit the homepage', function(assert) {
+  visit('/');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/');
+  });
+});
+
+test('User can see a list of ingredients for recipe', function(assert) {
+  visit('/');
+
+  andThen(function() {
+    assert.equal(list.length, 6);
+  });
+});
